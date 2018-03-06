@@ -17,7 +17,8 @@ public class SprintItem implements Subject {
 
 
 	public void setState(SprintItemState state) {
-		this.state = state;
+
+	    this.state = state;
 	}
 
 	@Override

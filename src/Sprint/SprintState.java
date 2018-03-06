@@ -11,4 +11,8 @@ public abstract class SprintState {
 		throw new UnsupportedOperationException();
 	}
 
+	public void update(SprintContext sprintContext){
+
+	}
+
 }
