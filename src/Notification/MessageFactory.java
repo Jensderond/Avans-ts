@@ -14,8 +14,16 @@ public class MessageFactory {
 	 * @param type
 	 */
 	public Service getMessageService(String type) {
-		// TODO - implement MessageFactory.getMessageService
-		throw new UnsupportedOperationException();
+
+	    switch (type) {
+            case "EMAIL":
+                return new Email();
+            case "SLACK":
+                return new Slack();
+            default:
+                return null;
+        }
+
 	}
 
 	public static MessageFactory getInstance() {

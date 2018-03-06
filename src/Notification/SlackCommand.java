@@ -4,10 +4,10 @@ import java.util.List;
 
 public class SlackCommand implements NotificationCommand {
 
-    private Slack slack;
+    private Service slack;
     private List messageQueue;
 
-    public SlackCommand(Slack slack, List messageQueue) {
+    public SlackCommand(Service slack, List messageQueue) {
         this.slack = slack;
         this.messageQueue = messageQueue;
     }

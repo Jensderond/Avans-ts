@@ -4,10 +4,10 @@ import java.util.List;
 
 public class EmailCommand implements NotificationCommand {
 
-    private Email email;
+    private Service email;
     private List messageQueue;
 
-    public EmailCommand(Email email, List messageQueue) {
+    public EmailCommand(Service email, List messageQueue) {
         this.email = email;
         this.messageQueue = messageQueue;
     }

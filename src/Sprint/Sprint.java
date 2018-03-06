@@ -1,15 +1,25 @@
 package Sprint;
 
+import Member.Member;
+import Notification.Observer;
 import Notification.Subject;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Sprint implements Subject {
 
-	SprintState sprintState;
+	private SprintState sprintState;
+	private ArrayList<Observer> observers;
+	private ArrayList<Member> members;
 	private String name;
 	private Date endDate;
 	private Date startDate;
+
+	public Sprint() {
+		observers = new ArrayList<>();
+		members = new ArrayList<>();
+	}
 
 	public int getTimeLeft() {
 		// TODO - implement Sprint.getTimeLeft
@@ -67,20 +77,24 @@ public class Sprint implements Subject {
 	}
 
 	@Override
-	public void registerObserver() {
-		//TODO - implement function
-		throw new UnsupportedOperationException();
+	public void registerObserver(Observer o) {
+		observers.add(o);
 	}
 
 	@Override
-	public void removeObserver() {
-		//TODO - implement function
-		throw new UnsupportedOperationException();
+	public void removeObserver(Observer o) {
+		int i = observers.indexOf(o);
+		if (i >= 0) {
+			observers.remove(i);
+		}
 	}
 
 	@Override
 	public void notifyObservers() {
-		//TODO - implement function
-		throw new UnsupportedOperationException();
+
+		for (Observer observer : observers) {
+//			observer.update(this.getState(), );
+			//TODO: use member in here
+		}
 	}
 }
