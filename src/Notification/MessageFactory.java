@@ -4,6 +4,11 @@ public class MessageFactory {
 
 	private static MessageFactory instance;
 
+
+	protected MessageFactory(){
+		// Exists to defeat instantiation
+	}
+
 	/**
 	 * 
 	 * @param type
@@ -13,8 +18,11 @@ public class MessageFactory {
 		throw new UnsupportedOperationException();
 	}
 
-	public MessageFactory getInstance() {
-		return this.instance;
+	public static MessageFactory getInstance() {
+		if ( instance == null ) {
+			instance = new MessageFactory();
+		}
+		return instance;
 	}
 
 }
