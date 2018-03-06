@@ -16,4 +16,8 @@ public class NotificationService implements Observer {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public void update() {
+
+	}
 }

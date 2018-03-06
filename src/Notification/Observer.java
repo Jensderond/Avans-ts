@@ -2,6 +2,6 @@ package Notification;
 
 public interface Observer {
 
-	void notify();
+	void update();
 
 }

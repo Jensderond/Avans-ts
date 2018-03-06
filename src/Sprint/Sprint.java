@@ -1,8 +1,10 @@
 package Sprint;
 
+import Notification.Subject;
+
 import java.util.Date;
 
-public class Sprint {
+public class Sprint implements Subject {
 
 	SprintState sprintState;
 	private String name;
@@ -64,4 +66,21 @@ public class Sprint {
 		this.startDate = startDate;
 	}
 
+	@Override
+	public void registerObserver() {
+		//TODO - implement function
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void removeObserver() {
+		//TODO - implement function
+		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public void notifyObservers() {
+		//TODO - implement function
+		throw new UnsupportedOperationException();
+	}
 }

@@ -1,13 +1,21 @@
 package Notification;
 
+import java.util.List;
+
 public class EmailCommand implements NotificationCommand {
-    @Override
-    public NotificationService getNotificationService() {
-        return null;
+
+    private Email email;
+    private List messageQueue;
+
+    public EmailCommand(Email email, List messageQueue) {
+        this.email = email;
+        this.messageQueue = messageQueue;
     }
 
     @Override
     public void execute() {
-
+        for (int i = 0; i < messageQueue.size(); i++) {
+            this.email.send();
+        }
     }
 }
