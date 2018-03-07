@@ -44,22 +44,21 @@ public class Main {
         /*
           And create a backlog item and add it to the product backlog
         */
-        SprintItem backlogItem1 = new BacklogItem();
+        SprintItem backlogItem1 = new BacklogItem(sprint1);
         backlogItem1.setTitle("Fix bugs");
 
         /*
           Add activities to the backlog item
         */
-        SprintItem activity1 = new Activity();
+        SprintItem activity1 = new Activity(sprint1);
         activity1.setTitle("Git does not work when images are added");
-        SprintItem activity2 = new Activity();
+        SprintItem activity2 = new Activity(sprint1);
         activity2.setTitle("VCS Bug when pressing button X too long");
 
         backlogItem1.addActivity((Activity) activity1);
         backlogItem1.addActivity((Activity) activity2);
 
         productBacklog.addToList((BacklogItem) backlogItem1);
-
 
 
 
@@ -71,10 +70,12 @@ public class Main {
         /*
           At first let's create some people.
         */
-        SprintItem item = new BacklogItem();
-        Todo todoState = new Todo();
+        SprintItem item = new BacklogItem(sprint1);
+        item.registerObserver(notificationService);
         //todoState.setDoing(item);
         item.setTodo();
+        item.setDoing();
+        item.setDone();
 
         System.out.println(item.getState().toString());
 

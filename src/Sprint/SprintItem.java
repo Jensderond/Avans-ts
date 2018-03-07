@@ -9,11 +9,20 @@ import java.util.List;
 
 public abstract class SprintItem implements Subject {
 
+	private Sprint sprint;
 	private SprintItemState state;
+	public SprintItemState toDoState;
+	public SprintItemState doingState;
+	public SprintItemState doneState;
 	private ArrayList<Observer> observers;
 
-	public SprintItem(){
-		state = null;
+	public SprintItem(Sprint sprint){
+		this.sprint = sprint;
+		this.observers = new ArrayList<>();
+		this.toDoState = new Todo(this);
+		this.doingState = new Doing(this);
+		this.doneState = new Done(this);
+		this.state = toDoState;
 	}
 
 	public SprintItemState getState() {
@@ -84,5 +93,9 @@ public abstract class SprintItem implements Subject {
 		for (Observer observer : observers) {
 			observer.update(this);
 		}
+	}
+
+	public Sprint getSprint() {
+		return sprint;
 	}
 }

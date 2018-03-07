@@ -20,8 +20,8 @@ public class Sprint implements Subject {
 	private Date startDate;
 
 	public Sprint() {
-		observers = new ArrayList<>();
-		members = new ArrayList<>();
+		this.observers = new ArrayList<>();
+		this.members = new ArrayList<>();
 		this.sprintState = new Create();
 	}
 

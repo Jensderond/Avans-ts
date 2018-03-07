@@ -11,7 +11,8 @@ public class BacklogItem extends SprintItem {
 	private String description;
 	private List<Activity> listActivity;
 
-	public BacklogItem(){
+	public BacklogItem(Sprint sprint){
+		super(sprint);
 		this.listActivity = new ArrayList<>();
 	}
 

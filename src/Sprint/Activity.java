@@ -8,6 +8,10 @@ public class Activity extends SprintItem {
 	private String description;
 	private Member member;
 
+	public Activity(Sprint sprint) {
+		super(sprint);
+	}
+
 	public String getTitle() {
 		return this.name;
 	}
@@ -38,8 +42,8 @@ public class Activity extends SprintItem {
 	 * @param member
 	 */
 	public boolean assingMember(Member member) {
-		// TODO - implement Activity.addMemberToActivity
-		throw new UnsupportedOperationException();
+		this.member = member;
+		return true;
 	}
 
 	public boolean removeMember() {
