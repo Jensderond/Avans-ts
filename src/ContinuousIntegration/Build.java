@@ -2,9 +2,17 @@ package ContinuousIntegration;
 
 public class Build extends PipelineDecorator {
 
-	public void addBuild() {
-		// TODO - implement Build.addBuild
-		throw new UnsupportedOperationException();
+	public Build(PipeLine decoratedPipeline) {
+		super(decoratedPipeline);
+	}
+
+	public void addPipeline(){
+		decoratedPipeline.addPipeline();
+		addBuild(decoratedPipeline);
+	}
+
+	private void addBuild(PipeLine decoratedPipeline) {
+        System.out.println("added build");
 	}
 
 }

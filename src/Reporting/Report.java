@@ -2,5 +2,6 @@ package Reporting;
 
 import Sprint.*;
 
-public abstract class Report extends Sprint {
+abstract class Report extends Sprint {
+    void decorateReport(){}
 }

@@ -2,9 +2,16 @@ package ContinuousIntegration;
 
 public class Deploy extends PipelineDecorator {
 
-	public void addDeploy() {
-		// TODO - implement Deploy.addDeploy
-		throw new UnsupportedOperationException();
+	public Deploy(PipeLine decoratedPipeline) {
+		super(decoratedPipeline);
 	}
 
+	public void addPipeline(){
+		decoratedPipeline.addPipeline();
+		addDeploy(decoratedPipeline);
+	}
+
+	private void addDeploy(PipeLine decoratedPipeline) {
+		System.out.println("added deploy");
+	}
 }
