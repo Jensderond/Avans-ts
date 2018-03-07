@@ -3,6 +3,7 @@ import Member.ScrumMaster;
 import Notification.*;
 import Sprint.*;
 
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -70,6 +71,12 @@ public class Main {
         /*
           At first let's create some people.
         */
+        SprintItem item = new BacklogItem();
+        Todo todoState = new Todo();
+        //todoState.setDoing(item);
+        item.setTodo();
+
+        System.out.println(item.getState().toString());
 
     }
 }

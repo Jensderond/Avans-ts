@@ -2,16 +2,17 @@ package Sprint;
 
 public abstract class SprintItemState {
 
-	/**
-	 * 
-	 * @param sprintItem
-	 */
-	//Verschil maken tussen een backlogItem en een activity
+    public void setTodo(SprintItem sprintItem){
 
-	public void update(SprintItem sprintItem) {
-		// TODO - implement SprintItemState.update
-		//throw new UnsupportedOperationException();
+    }
+
+	public void setDoing(SprintItem sprintItem) {
+
 	}
+
+	public void setDone(SprintItem sprintItem){
+
+    }
 
 	public void assignMember(SprintItem sprintItem){
 		// TODO - implement SprintItemState.assignMember

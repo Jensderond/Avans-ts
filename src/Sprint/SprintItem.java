@@ -26,6 +26,19 @@ public abstract class SprintItem implements Subject {
 		notifyObservers();
 	}
 
+    public void setTodo(){
+	    this.state.setTodo(this);
+    }
+
+	public void setDoing(){
+	    this.state.setDoing(this);
+    }
+
+    public void setDone(){
+	    this.state.setDone(this);
+    }
+
+
 	public void setTitle(String name){
 		throw new UnsupportedOperationException();
 	}

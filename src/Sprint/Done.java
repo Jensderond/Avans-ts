@@ -1,8 +1,18 @@
 package Sprint;
 
 public class Done extends SprintItemState {
-    public void update(SprintItem sprintItem){
-        System.out.println("Item is in done state");
+    public void setTodo(SprintItem sprintItem){
+        System.out.println("Item is in done state, wordt naar todo gezet ");
+        sprintItem.setState(this);
+    }
+
+    public void setDoing(SprintItem sprintItem){
+        System.out.println("item kan niet vanuit de done state naar de doing state gezet worden");
+        sprintItem.setState(this);
+    }
+
+    public void setDone(SprintItem sprintItem){
+        System.out.println("Item staat in de done state");
         sprintItem.setState(this);
     }
 
