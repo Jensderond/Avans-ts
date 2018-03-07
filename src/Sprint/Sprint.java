@@ -1,6 +1,7 @@
 package Sprint;
 
 import Member.Member;
+import Member.ScrumMaster;
 import Notification.Observer;
 import Notification.Subject;
 
@@ -19,6 +20,7 @@ public class Sprint implements Subject {
 	public Sprint() {
 		observers = new ArrayList<>();
 		members = new ArrayList<>();
+		this.sprintState = new Create();
 	}
 
 	public int getTimeLeft() {
@@ -32,12 +34,12 @@ public class Sprint implements Subject {
 	 */
 	public void setState(SprintState sprintState) {
 		// TODO - implement Sprint.setState
-		throw new UnsupportedOperationException();
+//		throw new UnsupportedOperationException();
+		notifyObservers();
 	}
 
 	public SprintState getState() {
-		// TODO - implement Sprint.getState
-		throw new UnsupportedOperationException();
+		return this.sprintState;
 	}
 
 	public String getName() {
@@ -91,10 +93,25 @@ public class Sprint implements Subject {
 
 	@Override
 	public void notifyObservers() {
-
 		for (Observer observer : observers) {
-//			observer.update(this.getState(), );
-			//TODO: use member in here
+			observer.update(this);
 		}
+	}
+
+	public ArrayList<Member> getMembers() {
+		return members;
+	}
+
+	public Member getScrumMaster() {
+		for (Member member: members){
+			if (member.getClass().equals(ScrumMaster.class)){
+				return member;
+			}
+		}
+		return null;
+	}
+
+	public void addMember(Member member) {
+		this.members.add(member);
 	}
 }

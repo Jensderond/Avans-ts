@@ -1,10 +1,12 @@
 package Notification;
 
-import Sprint.SprintState;
-import Member.Member;
+
+import Sprint.Sprint;
+import Sprint.SprintItem;
 
 public interface Observer {
 
-	void update(SprintState s, Member m);
+	void update(Sprint s);
+	void update(SprintItem s);
 
 }

@@ -3,7 +3,8 @@ package Member;
 public class Person {
 
 	private String name;
-	private String emailAdress;
+	private String emailAddress;
+	private String prefferedMessageMedium;
 
 	public String getName() {
 		return this.name;
@@ -18,15 +19,22 @@ public class Person {
 	}
 
 	public String getEmailAdress() {
-		return this.emailAdress;
+		return this.emailAddress;
 	}
 
 	/**
 	 * 
-	 * @param emailAdress
+	 * @param emailAddress
 	 */
-	public void setEmailAdress(String emailAdress) {
-		this.emailAdress = emailAdress;
+	public void setEmailAdress(String emailAddress) {
+		this.emailAddress = emailAddress;
 	}
 
+	public String getPrefferedMessageMedium() {
+		return prefferedMessageMedium;
+	}
+
+	public void setPrefferedMessageMedium(String prefferedMessageMedium) {
+		this.prefferedMessageMedium = prefferedMessageMedium.toUpperCase();
+	}
 }

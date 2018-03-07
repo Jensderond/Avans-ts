@@ -2,21 +2,25 @@ package Sprint;
 
 import Member.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BacklogItem extends Sprint {
 
 	private String title;
 	private String description;
-	private List listActivity;
+	private List<Activity> listActivity;
 
-	public void addActivity() {
-		// TODO - implement BacklogItem.addActivity
-		throw new UnsupportedOperationException();
+	public BacklogItem(){
+		this.listActivity = new ArrayList<>();
+	}
+
+	public void addActivity(Activity activity) {
+		listActivity.add(activity);
 	}
 
 	/**
-	 * 
+	 * Assign member to BacklogItem
 	 * @param member
 	 */
 	public void assignMember(Member member) {
@@ -24,9 +28,17 @@ public class BacklogItem extends Sprint {
 		throw new UnsupportedOperationException();
 	}
 
-	public List getActivities() {
-		// TODO - implement BacklogItem.getActivities
+	/**
+	 * Assign member to activity
+	 * @param member
+	 */
+	public void assignMember(Member member, Activity activity) {
+		// TODO - implement BacklogItem.assignMember
 		throw new UnsupportedOperationException();
+	}
+
+	public List getActivities() {
+		return this.listActivity;
 	}
 
 	public String getTitle() {

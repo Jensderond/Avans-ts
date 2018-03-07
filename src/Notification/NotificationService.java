@@ -1,38 +1,51 @@
 package Notification;
 
+import Sprint.Sprint;
+import Sprint.SprintItem;
 import Sprint.SprintState;
 import Member.Member;
 
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class NotificationService implements Observer {
 
-	private List<String> messageQueue;
+	private HashMap<Member, String> messageQueue;
+	private MessageFactory messageFactory = new MessageFactory();
 
 	public NotificationService() {
-		messageQueue = new ArrayList<>();
-		MessageFactory messageFactory = new MessageFactory();
-		messageFactory.getMessageService("SLACK");
-		NotificationCommand slackCommand = new SlackCommand(messageFactory.getMessageService("SLACK"), getMessageQueue());
-		NotificationCommand emailCommand = new EmailCommand(messageFactory.getMessageService("EMAIL"), getMessageQueue());
+		messageQueue = new HashMap<>();
+
 	}
 
-	public void addMessage(String m) {
-		messageQueue.add(m);
+	public void addMessage(Member m, String s) {
+		messageQueue.put(m, s);
 	}
 
-	public List<String> getMessageQueue() {
+	public HashMap<Member, String> getMessageQueue() {
 		return this.messageQueue;
 	}
 
 	public void sendMessage() {
-		// TODO - implement NotificationService.sendMessage
-		throw new UnsupportedOperationException();
+		NotificationCommand slackCommand = new SlackCommand(this.messageFactory.getMessageService("SLACK"), getMessageQueue());
+		slackCommand.execute();
+
+		NotificationCommand emailCommand = new EmailCommand(this.messageFactory.getMessageService("EMAIL"), getMessageQueue());
+		emailCommand.execute();
+	}
+
+
+	@Override
+	public void update(Sprint s) {
+		addMessage(s.getScrumMaster(), "State changed to: " + s.getState().getClass().getName());
+		sendMessage();
 	}
 
 	@Override
-	public void update(SprintState s, Member m) {
-
+	public void update(SprintItem s) {
+//		addMessage(s.getScrumMaster(), "State changed to: " + s.getState());
 	}
 }

@@ -2,7 +2,11 @@ package Member;
 
 public class Developer extends Member {
 
-    public void setRole() {
+    public Developer(Person person) {
+        super(person);
+    }
 
+    public Member setRole() {
+        return this;
     }
 }
