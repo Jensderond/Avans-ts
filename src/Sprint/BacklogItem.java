@@ -5,7 +5,7 @@ import Member.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BacklogItem extends Sprint {
+public class BacklogItem extends SprintItem {
 
 	private String title;
 	private String description;
@@ -37,10 +37,12 @@ public class BacklogItem extends Sprint {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
 	public List getActivities() {
 		return this.listActivity;
 	}
 
+	@Override
 	public String getTitle() {
 		return this.title;
 	}
@@ -49,10 +51,12 @@ public class BacklogItem extends Sprint {
 	 * 
 	 * @param title
 	 */
+	@Override
 	public void setTitle(String title) {
 		this.title = title;
 	}
 
+	@Override
 	public String getDescription() {
 		return this.description;
 	}
@@ -61,6 +65,7 @@ public class BacklogItem extends Sprint {
 	 * 
 	 * @param description
 	 */
+	@Override
 	public void setDescription(String description) {
 		this.description = description;
 	}

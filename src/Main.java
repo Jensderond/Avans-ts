@@ -20,7 +20,7 @@ public class Main {
 
         Person person2 = new Person();
         person2.setName("Antonie");
-        Member member2 = new Developer(person2);
+        Member member2 = new ProductOwner(person2);
 
         /*
           Now create a sprint or two.
@@ -43,21 +43,21 @@ public class Main {
         /*
           And create a backlog item and add it to the product backlog
         */
-        BacklogItem backlogItem1 = new BacklogItem();
+        SprintItem backlogItem1 = new BacklogItem();
         backlogItem1.setTitle("Fix bugs");
 
         /*
           Add activities to the backlog item
         */
-        Activity activity1 = new Activity();
-        activity1.setName("Git does not work when images are added");
-        Activity activity2 = new Activity();
-        activity2.setName("VCS Bug when pressing button X too long");
+        SprintItem activity1 = new Activity();
+        activity1.setTitle("Git does not work when images are added");
+        SprintItem activity2 = new Activity();
+        activity2.setTitle("VCS Bug when pressing button X too long");
 
-        backlogItem1.addActivity(activity1);
-        backlogItem1.addActivity(activity2);
+        backlogItem1.addActivity((Activity) activity1);
+        backlogItem1.addActivity((Activity) activity2);
 
-        productBacklog.addToList(backlogItem1);
+        productBacklog.addToList((BacklogItem) backlogItem1);
 
 
 

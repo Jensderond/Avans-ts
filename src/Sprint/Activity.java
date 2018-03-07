@@ -6,8 +6,9 @@ public class Activity extends SprintItem {
 
 	private String name;
 	private String description;
+	private Member member;
 
-	public String getName() {
+	public String getTitle() {
 		return this.name;
 	}
 
@@ -15,7 +16,8 @@ public class Activity extends SprintItem {
 	 * 
 	 * @param Name
 	 */
-	public void setName(String Name) {
+	@Override
+	public void setTitle(String Name) {
 		this.name = Name;
 	}
 
@@ -35,16 +37,14 @@ public class Activity extends SprintItem {
 	 * 
 	 * @param member
 	 */
-	public boolean addMemberToActivity(Member member) {
+	public boolean assingMember(Member member) {
 		// TODO - implement Activity.addMemberToActivity
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * 
-	 * @param member
-	 */
-	public boolean removeFromActivity(Member member) {
+	public boolean removeMember() {
+
+		notifyObservers();
 		// TODO - implement Activity.removeFromActivity
 		throw new UnsupportedOperationException();
 	}

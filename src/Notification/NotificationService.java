@@ -40,8 +40,10 @@ public class NotificationService implements Observer {
 
 	@Override
 	public void update(Sprint s) {
-		addMessage(s.getScrumMaster(), "State changed to: " + s.getState().getClass().getName());
-		sendMessage();
+		if(s.getScrumMaster() != null) {
+			addMessage(s.getScrumMaster(), "State changed to: " + s.getState().getClass().getName());
+			sendMessage();
+		}
 	}
 
 	@Override

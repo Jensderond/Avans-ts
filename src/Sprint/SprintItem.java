@@ -1,11 +1,13 @@
 package Sprint;
 
+import Member.Member;
 import Notification.Observer;
 import Notification.Subject;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class SprintItem implements Subject {
+public abstract class SprintItem implements Subject {
 
 	private SprintItemState state;
 	private ArrayList<Observer> observers;
@@ -19,11 +21,37 @@ public class SprintItem implements Subject {
 		return this.state;
 	}
 
-
 	public void setState(SprintItemState state) {
-
-	    this.state = state;
+		this.state = state;
+		notifyObservers();
 	}
+
+	public void setTitle(String name){
+		throw new UnsupportedOperationException();
+	}
+	public String getTitle(){
+		throw new UnsupportedOperationException();
+	}
+	public void setDescription(String description) {
+		throw new UnsupportedOperationException();
+	}
+	public String getDescription() {
+		throw new UnsupportedOperationException();
+	}
+	public void addActivity(Activity activity) {
+		throw new UnsupportedOperationException();
+	}
+	public List getActivities() {
+		throw new UnsupportedOperationException();
+	}
+	public void assignMember(Member member){
+		throw new UnsupportedOperationException();
+	}
+	public boolean removeMember(){
+		throw new UnsupportedOperationException();
+	}
+
+
 
     @Override
     public void registerObserver(Observer o) {

@@ -2,6 +2,8 @@ package Sprint;
 
 import Member.Member;
 import Member.ScrumMaster;
+import Member.ProductOwner;
+import Member.Developer;
 import Notification.Observer;
 import Notification.Subject;
 
@@ -112,6 +114,38 @@ public class Sprint implements Subject {
 	}
 
 	public void addMember(Member member) {
-		this.members.add(member);
+		int scrumMaster = 0;
+		int productOwner =0;
+		for (Member m: members) {
+			if ( m.getClass().equals(ScrumMaster.class) ) {
+				scrumMaster++;
+			}
+			if ( m.getClass().equals(ProductOwner.class) ) {
+				productOwner++;
+			}
+		}
+
+		if (member.getClass().equals(ScrumMaster.class)) {
+			if ( scrumMaster < 1 ){
+				members.add(member);
+				System.out.println("ScrumMaster added.");
+			}
+			else {
+				System.out.println("ScrumMaster already set");
+			}
+		}
+		else if (member.getClass().equals(ProductOwner.class)) {
+			if ( productOwner < 1 ){
+				members.add(member);
+				System.out.println("ProductOwner added.");
+			}
+			else {
+				System.out.println("ProductOwner already set");
+			}
+		}
+		else if (member.getClass().equals(Developer.class)) {
+			this.members.add(member);
+			System.out.println("Developer added.");
+		}
 	}
 }
