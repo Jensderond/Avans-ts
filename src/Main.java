@@ -72,7 +72,8 @@ public class Main {
         */
         SprintItem item = new BacklogItem(sprint1);
         item.registerObserver(notificationService);
-        //todoState.setDoing(item);
+
+        item.setTitle("Git does not work when images are added");
         item.setTodo();
         item.setDoing();
         item.setDone();

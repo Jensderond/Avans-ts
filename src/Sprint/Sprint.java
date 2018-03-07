@@ -132,6 +132,7 @@ public class Sprint implements Subject {
 			}
 			else {
 				System.out.println("ScrumMaster already set");
+				throw new UnsupportedOperationException();
 			}
 		}
 		else if (member.getClass().equals(ProductOwner.class)) {
@@ -141,6 +142,7 @@ public class Sprint implements Subject {
 			}
 			else {
 				System.out.println("ProductOwner already set");
+				throw new UnsupportedOperationException();
 			}
 		}
 		else if (member.getClass().equals(Developer.class)) {

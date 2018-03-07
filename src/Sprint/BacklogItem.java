@@ -10,6 +10,7 @@ public class BacklogItem extends SprintItem {
 	private String title;
 	private String description;
 	private List<Activity> listActivity;
+	private Member member;
 
 	public BacklogItem(Sprint sprint){
 		super(sprint);
@@ -25,8 +26,15 @@ public class BacklogItem extends SprintItem {
 	 * @param member
 	 */
 	public void assignMember(Member member) {
-		// TODO - implement BacklogItem.assignMember
-		throw new UnsupportedOperationException();
+		if ( getState().getClass().equals(Todo.class)){
+			this.member = member;
+		}
+		if ( getState().getClass().equals(Doing.class)){
+			throw new UnsupportedOperationException();
+		}
+		if ( getState().getClass().equals(Done.class)){
+			throw new UnsupportedOperationException();
+		}
 	}
 
 	/**
@@ -54,7 +62,15 @@ public class BacklogItem extends SprintItem {
 	 */
 	@Override
 	public void setTitle(String title) {
-		this.title = title;
+		if ( getState().getClass().equals(Todo.class)){
+			this.title = title;
+		}
+		if ( getState().getClass().equals(Doing.class)){
+			throw new UnsupportedOperationException();
+		}
+		if ( getState().getClass().equals(Done.class)){
+			throw new UnsupportedOperationException();
+		}
 	}
 
 	@Override
@@ -68,7 +84,16 @@ public class BacklogItem extends SprintItem {
 	 */
 	@Override
 	public void setDescription(String description) {
-		this.description = description;
+
+		if ( getState().getClass().equals(Todo.class)){
+			this.description = description;
+		}
+		if ( getState().getClass().equals(Doing.class)){
+			this.description = description;
+		}
+		if ( getState().getClass().equals(Done.class)){
+			throw new UnsupportedOperationException();
+		}
 	}
 
 }

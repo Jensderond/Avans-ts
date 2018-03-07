@@ -73,8 +73,6 @@ public abstract class SprintItem implements Subject {
 		throw new UnsupportedOperationException();
 	}
 
-
-
     @Override
     public void registerObserver(Observer o) {
 		observers.add(o);
