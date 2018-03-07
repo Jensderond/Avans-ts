@@ -1,5 +1,6 @@
 package Sprint;
 
+import Notification.Observer;
 import Notification.Subject;
 
 public class SprintItem implements Subject {
@@ -21,19 +22,17 @@ public class SprintItem implements Subject {
 	    this.state = state;
 	}
 
-	@Override
-	public void registerObserver() {
-		//TODO - implement function
-		throw new UnsupportedOperationException();
-	}
+    @Override
+    public void registerObserver(Observer o) {
 
-	@Override
-	public void removeObserver() {
-		//TODO - implement function
-		throw new UnsupportedOperationException();
-	}
+    }
 
-	@Override
+    @Override
+    public void removeObserver(Observer o) {
+
+    }
+
+    @Override
 	public void notifyObservers() {
 		//TODO - implement function
 		throw new UnsupportedOperationException();
